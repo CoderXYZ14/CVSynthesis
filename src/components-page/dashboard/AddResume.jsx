@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Loader2, PlusSquare } from "lucide-react";
 import {
@@ -9,11 +10,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CreateNewResume } from "./../../../service/GlobalApi";
 import { useUser } from "@clerk/clerk-react";
+import { CreateNewResume } from "./../../../service/GlobalApi";
 
 const AddResume = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -34,7 +33,7 @@ const AddResume = () => {
     };
     CreateNewResume(data).then(
       (resp) => {
-        console.log(resp);
+        //console.log(resp);
         if (resp) setLoading(false);
       },
       (err) => {

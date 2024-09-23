@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ClerkProvider } from "@clerk/clerk-react";
 import App from "./App.jsx";
 import "./index.css";
-import { Dashboard, Home } from "./components-page/index.js";
+import { Dashboard, EditResume, Home } from "./components-page/index.js";
 import SignInPage from "./auth/sign-in/SignInPage.jsx";
 
 const router = createBrowserRouter([
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/resume/:resumeId/edit",
+        element: <EditResume />,
       },
     ],
   },

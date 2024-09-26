@@ -11,5 +11,7 @@ const axiosClient = axios.create({
 
 const CreateNewResume = (data) => axiosClient.post("/user-resumes", data);
 
-const GetUserResumes = (userEmail) => axiosClient.get("/user-resumes");
+const GetUserResumes = (userEmail) =>
+  axiosClient.get(`/user-resumes?filters[userEmail][$eq]=${userEmail}`);
+//if send to /user-resumes give all the resumes but this is special in strapi to get resumes associated with that user email
 export { CreateNewResume, GetUserResumes };

@@ -12,13 +12,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/clerk-react";
-import { CreateNewResume } from "./../../../service/GlobalApi";
+import * as GlobalApi from "../../../service/GlobalApi";
+import { useNavigate } from "react-router-dom";
 
 const AddResume = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [resumeTitle, setResumeTitle] = useState("");
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const onCreate = async () => {
     setLoading(true);
@@ -31,10 +33,11 @@ const AddResume = () => {
         userName: user?.fullName,
       },
     };
-    CreateNewResume(data).then(
+    GlobalApi.CreateNewResume(data).then(
       (resp) => {
-        //console.log(resp);
+        console.log(resp);
         if (resp) setLoading(false);
+        navigate(`/dashboard/resume/${uuid}/edit`);
       },
       (err) => {
         setLoading(false);
@@ -55,12 +58,14 @@ const AddResume = () => {
           <DialogHeader>
             <DialogTitle>Create New Resume</DialogTitle>
             <DialogDescription>
-              <p>Add a title for your new resume</p>
-              <Input
-                className="my-2"
-                placeholder="Ex.Full Stack resume"
-                onChange={(e) => setResumeTitle(e.target.value)}
-              />
+              <div>
+                <p>Add a title for your new resume</p>
+                <Input
+                  className="my-2"
+                  placeholder="Ex. Full Stack resume"
+                  onChange={(e) => setResumeTitle(e.target.value)}
+                />
+              </div>
             </DialogDescription>
             <div className="flex justify-end gap-5">
               <Button variant="ghost" onClick={() => setOpenDialog(false)}>

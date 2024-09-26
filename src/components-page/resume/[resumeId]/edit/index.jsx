@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { FormSection, ResumePreview } from "../../components";
+import { FormSection, ResumePreview } from "../../../resumeComponents";
 
 const EditResume = () => {
   const { resumeId } = useParams();

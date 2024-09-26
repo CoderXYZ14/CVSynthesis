@@ -1,3 +1,4 @@
 import PersonalDetailPreview from "./PersonalDetailPreview";
 import SummaryPreview from "./SummaryPreview";
-export { PersonalDetailPreview, SummaryPreview };
+import ProfessionalExperiencePreview from "./ProfessionalExperiencePreview";
+export { PersonalDetailPreview, SummaryPreview, ProfessionalExperiencePreview };

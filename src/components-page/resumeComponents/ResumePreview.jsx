@@ -3,6 +3,7 @@ import {
   EducationalPreview,
   PersonalDetailPreview,
   ProfessionalExperiencePreview,
+  SkillsPreview,
   SummaryPreview,
 } from "../preview";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
@@ -24,6 +25,7 @@ const ResumePreview = () => {
       {/* Educational */}
       <EducationalPreview resumeInfo={resumeInfo} />
       {/* Skills */}
+      <SkillsPreview resumeInfo={resumeInfo} />
     </div>
   );
 };

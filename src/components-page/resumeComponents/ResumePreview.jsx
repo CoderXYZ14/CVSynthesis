@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PersonalDetailPreview } from "../preview";
+import { PersonalDetailPreview, SummaryPreview } from "../preview";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 
 const ResumePreview = () => {
@@ -10,9 +10,10 @@ const ResumePreview = () => {
       className="shadow-lg h-full p-14 border-t-[20px]"
       style={{ borderColor: resumeInfo?.themeColor }}
     >
-      <PersonalDetailPreview resumeInfo={resumeInfo} />{" "}
-      {/* {console.log("2" + resumeInfo)} */}
+      {/* Personal Details */}
+      <PersonalDetailPreview resumeInfo={resumeInfo} />
       {/* Summary */}
+      <SummaryPreview resumeInfo={resumeInfo} />
       {/* Profession Experience */}
       {/* Educational */}
       {/* Skills */}

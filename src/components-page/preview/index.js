@@ -1,3 +1,3 @@
 import PersonalDetailPreview from "./PersonalDetailPreview";
-
-export { PersonalDetailPreview };
+import SummaryPreview from "./SummaryPreview";
+export { PersonalDetailPreview, SummaryPreview };

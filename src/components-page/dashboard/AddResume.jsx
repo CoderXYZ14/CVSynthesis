@@ -37,7 +37,7 @@ const AddResume = () => {
       (resp) => {
         console.log(resp);
         if (resp) setLoading(false);
-        navigate(`/dashboard/resume/${uuid}/edit`);
+        navigate(`/dashboard/resume/${resp.data.data.documentId}/edit`);
       },
       (err) => {
         setLoading(false);
@@ -58,14 +58,12 @@ const AddResume = () => {
           <DialogHeader>
             <DialogTitle>Create New Resume</DialogTitle>
             <DialogDescription>
-              <div>
-                <p>Add a title for your new resume</p>
-                <Input
-                  className="my-2"
-                  placeholder="Ex. Full Stack resume"
-                  onChange={(e) => setResumeTitle(e.target.value)}
-                />
-              </div>
+              <p>Add a title for your new resume</p>
+              <Input
+                className="my-2"
+                placeholder="Ex. Full Stack resume"
+                onChange={(e) => setResumeTitle(e.target.value)}
+              />
             </DialogDescription>
             <div className="flex justify-end gap-5">
               <Button variant="ghost" onClick={() => setOpenDialog(false)}>
